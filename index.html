@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>EGOCORP™ — Media & Cultural Systems</title>
+<meta name="description" content="EGOCORP™ Media & Cultural Systems provides entertainment and educational services through immersive storytelling, digital publications, and interactive narrative environments." />
 
 <style>
 :root{
@@ -11,18 +12,16 @@
   --blue:#6bd4ff;
   --blueGlow:#2fb3ff;
   --amber:#ffb347;
+  --line: rgba(107,212,255,.18);
 }
-
 body{
   margin:0;
   background:radial-gradient(circle at 50% 20%, #0a1e38 0%, #02060f 70%);
   color:var(--blue);
-  font-family: monospace;
+  font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
   letter-spacing:.5px;
   overflow-x:hidden;
 }
-
-/* CRT scanlines */
 body:before{
   content:"";
   position:fixed;
@@ -36,40 +35,52 @@ body:before{
   pointer-events:none;
   opacity:.6;
 }
-
 .wrapper{
-  max-width:900px;
+  max-width:960px;
   margin:auto;
-  padding:30px 20px;
+  padding:28px 18px 56px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background: rgba(2,6,15,.35);
+  box-shadow: 0 0 18px rgba(47,179,255,.10);
 }
-
-h1{
-  font-size:32px;
-  text-shadow:0 0 15px var(--blueGlow);
-  margin:0;
+/* Subtle Corporate Flicker */
+.flicker{
+  animation: corporateFlicker 6s infinite;
+  text-shadow:0 0 12px rgba(47,179,255,.6);
 }
-
-.subtitle{
-  opacity:.7;
-  margin-bottom:30px;
+@keyframes corporateFlicker{
+  0%, 100% { opacity:1; }
+  49% { opacity:.92; }
+  50% { opacity:1; }
+  89% { opacity:.94; }
+  90% { opacity:1; }
 }
-
+h1{ font-size:32px; margin:0; }
+.subtitle{ opacity:.7; margin:8px 0 22px; }
 .section{
-  margin-bottom:35px;
+  margin:22px 0;
+  padding-top:18px;
+  border-top:1px dashed rgba(107,212,255,.18);
 }
-
+.section:first-of-type{ border-top:none; padding-top:0; }
 .section h2{
-  font-size:14px;
+  font-size:12px;
   text-transform:uppercase;
   letter-spacing:2px;
-  opacity:.8;
-  margin-bottom:10px;
+  opacity:.85;
+  margin:0 0 10px;
 }
-
+.section p{
+  font-size:14px;
+  line-height:1.65;
+  margin:0;
+}
+.actions{ margin-top:12px; }
 a.button{
   display:inline-block;
   margin:10px 10px 0 0;
-  padding:8px 14px;
+  padding:9px 14px;
   border:1px solid var(--amber);
   color:var(--amber);
   text-decoration:none;
@@ -77,61 +88,76 @@ a.button{
   font-size:12px;
   letter-spacing:1px;
   transition:.2s;
+  border-radius:10px;
+  background: rgba(255,179,71,.05);
 }
-
 a.button:hover{
   background:var(--amber);
   color:black;
-  box-shadow:0 0 12px var(--amber);
+  box-shadow:0 0 12px rgba(255,179,71,.45);
 }
-
+.small{ font-size:12px; opacity:.65; margin-top:10px; }
 .footer{
-  margin-top:50px;
+  margin-top:26px;
   font-size:12px;
   opacity:.6;
   border-top:1px solid rgba(107,212,255,.2);
-  padding-top:15px;
+  padding-top:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
 }
+a.link{
+  color:#ffd48a;
+  text-decoration:none;
+  border-bottom:1px dashed rgba(255,212,138,.6);
+}
+a.link:hover{ border-bottom-color: rgba(255,212,138,1); }
 </style>
 </head>
 
 <body>
+  <div class="wrapper">
+    <h1 class="flicker">EGOCORP™</h1>
+    <div class="subtitle">Media & Cultural Systems</div>
 
-<div class="wrapper">
+    <div class="section">
+      <h2>Overview</h2>
+      <p>
+        Egocorp is a media and cultural development entity providing entertainment and educational services through immersive storytelling, digital publications, and interactive narrative environments.
+      </p>
 
-<h1>EGOCORP™</h1>
-<div class="subtitle">Media & Cultural Systems</div>
+      <div class="actions">
+        <a class="button" href="projects.html">Explore Projects</a>
+        <a class="button" href="terminal.html">Access Interface</a>
+        <a class="button" href="fame-farm.html" title="Buy Fame Farm">Read Fame Farm</a>
+      </div>
+      <div class="small">SYS MODE: PUBLIC FRONT • LAYER: SURFACE • ROUTE: /terminal (restricted)</div>
+    </div>
 
-<div class="section">
-<h2>Overview</h2>
-<p>
-Egocorp is a media and cultural development entity providing entertainment and educational services through immersive storytelling, digital publications, and interactive narrative environments.
-</p>
+    <div class="section">
+      <h2>Entertainment & Educational Services</h2>
+      <p>
+        Services include literary works, multimedia narrative development, online entertainment experiences, and interactive digital storytelling platforms delivered through web-based environments and published media.
+      </p>
+    </div>
 
-<a href="#" class="button">Explore Projects</a>
-<a href="/terminal" class="button">Access Interface</a>
-<a href="#" class="button">Read Fame Farm</a>
-</div>
+    <div class="section">
+      <h2>Systems Access</h2>
+      <p>
+        Authorized narrative interfaces are available through the Egocorp access environment.
+        If you do not have credentials, proceed through approved entry points.
+      </p>
+      <div class="actions">
+        <a class="button" href="terminal.html">Enter Employee Login</a>
+      </div>
+    </div>
 
-<div class="section">
-<h2>Entertainment & Educational Services</h2>
-<p>
-Services include literary works, multimedia narrative development, online entertainment experiences, and interactive digital storytelling platforms delivered through web-based environments and published media.
-</p>
-</div>
-
-<div class="section">
-<h2>Featured Narrative Experience</h2>
-<p>
-<strong>Fame Farm</strong> — A dystopian narrative examining artificial intelligence, influence economics, and digital culture.
-</p>
-</div>
-
-<div class="footer">
-© 2026 Egocorp Media & Cultural Systems
-</div>
-
-</div>
-
+    <div class="footer">
+      <div>© 2026 Egocorp Media & Cultural Systems</div>
+      <div><a class="link" href="project-virtu.html">Project Virtu</a> • <a class="link" href="projects.html">Projects</a></div>
+    </div>
+  </div>
 </body>
 </html>
