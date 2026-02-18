@@ -1,163 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EGOCORP™ — Media & Cultural Systems</title>
-<meta name="description" content="EGOCORP™ Media & Cultural Systems provides entertainment and educational services through immersive storytelling, digital publications, and interactive narrative environments." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egocorp</title>
 
 <style>
-:root{
-  --bg:#02060f;
-  --blue:#6bd4ff;
-  --blueGlow:#2fb3ff;
-  --amber:#ffb347;
-  --line: rgba(107,212,255,.18);
+
+html {
+scroll-behavior: smooth;
 }
-body{
-  margin:0;
-  background:radial-gradient(circle at 50% 20%, #0a1e38 0%, #02060f 70%);
-  color:var(--blue);
-  font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
-  letter-spacing:.5px;
-  overflow-x:hidden;
+
+body {
+margin: 0;
+background: #02060f;
+color: #6bd4ff;
+font-family: "Courier New", monospace;
+text-align: center;
+overflow-x: hidden;
 }
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0px,
-    rgba(0,0,0,0) 2px,
-    rgba(0,0,0,.25) 3px
-  );
-  pointer-events:none;
-  opacity:.6;
+
+/* CRT Scanlines */
+body::after {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: repeating-linear-gradient(
+to bottom,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.02) 1px,
+transparent 1px,
+transparent 3px
+);
+pointer-events: none;
 }
-.wrapper{
-  max-width:960px;
-  margin:auto;
-  padding:28px 18px 56px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background: rgba(2,6,15,.35);
-  box-shadow: 0 0 18px rgba(47,179,255,.10);
+
+/* Flicker */
+@keyframes flicker {
+0% { opacity: 1; }
+2% { opacity: 0.97; }
+4% { opacity: 1; }
+50% { opacity: 0.98; }
+100% { opacity: 1; }
 }
-/* Subtle Corporate Flicker */
-.flicker{
-  animation: corporateFlicker 6s infinite;
-  text-shadow:0 0 12px rgba(47,179,255,.6);
+
+.container {
+padding: 60px 20px;
+animation: flicker 5s infinite;
 }
-@keyframes corporateFlicker{
-  0%, 100% { opacity:1; }
-  49% { opacity:.92; }
-  50% { opacity:1; }
-  89% { opacity:.94; }
-  90% { opacity:1; }
+
+/* Logo Glow */
+.logo {
+filter: drop-shadow(0 0 12px #3fbfff)
+        drop-shadow(0 0 30px #2fb3ff);
+margin-bottom: 20px;
 }
-h1{ font-size:32px; margin:0; }
-.subtitle{ opacity:.7; margin:8px 0 22px; }
-.section{
-  margin:22px 0;
-  padding-top:18px;
-  border-top:1px dashed rgba(107,212,255,.18);
+
+/* Title */
+h1 {
+font-size: 42px;
+letter-spacing: 6px;
+margin: 10px 0 30px 0;
+text-shadow: 0 0 10px #3fbfff, 0 0 20px #2fb3ff;
 }
-.section:first-of-type{ border-top:none; padding-top:0; }
-.section h2{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  opacity:.85;
-  margin:0 0 10px;
+
+/* Nav */
+nav a {
+display: inline-block;
+margin: 10px 15px;
+color: #6bd4ff;
+text-decoration: none;
+font-size: 18px;
+transition: 0.3s;
 }
-.section p{
-  font-size:14px;
-  line-height:1.65;
-  margin:0;
+
+nav a:hover {
+color: #ffb347;
+text-shadow: 0 0 8px #ffb347;
 }
-.actions{ margin-top:12px; }
-a.button{
-  display:inline-block;
-  margin:10px 10px 0 0;
-  padding:9px 14px;
-  border:1px solid var(--amber);
-  color:var(--amber);
-  text-decoration:none;
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:1px;
-  transition:.2s;
-  border-radius:10px;
-  background: rgba(255,179,71,.05);
+
+/* Sections */
+section {
+padding: 80px 20px;
+border-top: 1px solid rgba(107,212,255,0.2);
 }
-a.button:hover{
-  background:var(--amber);
-  color:black;
-  box-shadow:0 0 12px rgba(255,179,71,.45);
+
+h2 {
+letter-spacing: 3px;
+margin-bottom: 20px;
+text-shadow: 0 0 8px #3fbfff;
 }
-.small{ font-size:12px; opacity:.65; margin-top:10px; }
-.footer{
-  margin-top:26px;
-  font-size:12px;
-  opacity:.6;
-  border-top:1px solid rgba(107,212,255,.2);
-  padding-top:14px;
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
+
+p {
+max-width: 700px;
+margin: 0 auto 20px auto;
+line-height: 1.6;
+font-size: 16px;
 }
-a.link{
-  color:#ffd48a;
-  text-decoration:none;
-  border-bottom:1px dashed rgba(255,212,138,.6);
+
+.button {
+display: inline-block;
+margin-top: 15px;
+padding: 10px 20px;
+border: 1px solid #6bd4ff;
+color: #6bd4ff;
+text-decoration: none;
+transition: 0.3s;
 }
-a.link:hover{ border-bottom-color: rgba(255,212,138,1); }
+
+.button:hover {
+border-color: #ffb347;
+color: #ffb347;
+box-shadow: 0 0 10px #ffb347;
+}
+
 </style>
 </head>
-
 <body>
-  <div class="wrapper">
-    <h1 class="flicker">EGOCORP™</h1>
-    <div class="subtitle">Media & Cultural Systems</div>
 
-    <div class="section">
-      <h2>Overview</h2>
-      <p>
-        Egocorp is a media and cultural development entity providing entertainment and educational services through immersive storytelling, digital publications, and interactive narrative environments.
-      </p>
+<div class="container">
 
-      <div class="actions">
-        <a class="button" href="projects.html">Explore Projects</a>
-        <a class="button" href="terminal.html">Access Interface</a>
-        <a class="button" href="fame-farm.html" title="Buy Fame Farm">Read Fame Farm</a>
-      </div>
-      <div class="small">SYS MODE: PUBLIC FRONT • LAYER: SURFACE • ROUTE: /terminal (restricted)</div>
-    </div>
+<!-- SVG LOGO -->
+<svg class="logo" width="180" height="200" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
 
-    <div class="section">
-      <h2>Entertainment & Educational Services</h2>
-      <p>
-        Services include literary works, multimedia narrative development, online entertainment experiences, and interactive digital storytelling platforms delivered through web-based environments and published media.
-      </p>
-    </div>
+<polygon fill="#6bd4ff" points="110,20 180,60 110,100 40,60"/>
+<polygon fill="#02060f" points="110,48 145,68 110,88 75,68"/>
 
-    <div class="section">
-      <h2>Systems Access</h2>
-      <p>
-        Authorized narrative interfaces are available through the Egocorp access environment.
-        If you do not have credentials, proceed through approved entry points.
-      </p>
-      <div class="actions">
-        <a class="button" href="terminal.html">Enter Employee Login</a>
-      </div>
-    </div>
+<polygon fill="#6bd4ff" points="50,110 170,110 140,140 80,140"/>
+<polygon fill="#6bd4ff" points="45,145 175,145 140,175 80,175"/>
+<polygon fill="#6bd4ff" points="40,180 180,180 140,210 80,210"/>
 
-    <div class="footer">
-      <div>© 2026 Egocorp Media & Cultural Systems</div>
-      <div><a class="link" href="project-virtu.html">Project Virtu</a> • <a class="link" href="projects.html">Projects</a></div>
-    </div>
-  </div>
+</svg>
+
+<h1>EGOCORP</h1>
+
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#vision">Vision</a>
+<a href="#famefarm">Read Fame Farm</a>
+<a href="#terminal">Access Terminal</a>
+</nav>
+
+</div>
+
+<section id="about">
+<h2>ABOUT</h2>
+<p>
+Egocorp is a multidisciplinary systems company operating at the intersection of entertainment, narrative architecture, and behavioral design.
+</p>
+<p>
+We build culture. We prototype futures. We design influence.
+</p>
+</section>
+
+<section id="projects">
+<h2>PROJECTS</h2>
+<p>
+• Project Virtu  
+• Simulacracy Narrative Systems  
+• Social Exchange Architectures  
+• Immersive Media Platforms  
+</p>
+</section>
+
+<section id="vision">
+<h2>VISION</h2>
+<p>
+Virtu City is the prototype.  
+A living simulation exploring the future of social engineering, digital economies, and influence infrastructure.
+</p>
+<p>
+The future of media is interactive. The future of power is narrative.
+</p>
+</section>
+
+<section id="famefarm">
+<h2>READ FAME FARM</h2>
+<p>
+The foundational narrative exploring Virtu City and the rise of the Influence Economy.
+</p>
+<a class="button" href="https://books.apple.com" target="_blank">
+Buy Digital Copy
+</a>
+</section>
+
+<section id="terminal">
+<h2>ACCESS TERMINAL</h2>
+<p>
+Employee access portal coming online.
+</p>
+</section>
+
 </body>
 </html>
